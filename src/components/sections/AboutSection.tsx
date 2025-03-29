@@ -8,38 +8,38 @@ export default function AboutSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h3 className="text-2xl font-semibold mb-4">Machine Learning Engineer</h3>
-            <p className="mb-4 text-muted-foreground">
+            <p className="mb-4 text-foreground/80 dark:text-foreground/90">
               I specialize in developing machine learning solutions for complex problems, with expertise in computer vision, 
               reinforcement learning, and natural language processing.
             </p>
-            <p className="mb-4 text-muted-foreground">
+            <p className="mb-4 text-foreground/80 dark:text-foreground/90">
               With a strong background in both theoretical foundations and practical implementations, 
               I build systems that deliver real-world value across various domains.
             </p>
             <div className="flex flex-wrap gap-2 mt-6">
-              <span className="px-3 py-1 bg-accent rounded-full text-sm">PyTorch</span>
-              <span className="px-3 py-1 bg-accent rounded-full text-sm">TensorFlow</span>
-              <span className="px-3 py-1 bg-accent rounded-full text-sm">Computer Vision</span>
-              <span className="px-3 py-1 bg-accent rounded-full text-sm">NLP</span>
-              <span className="px-3 py-1 bg-accent rounded-full text-sm">Reinforcement Learning</span>
+              <span className="px-3 py-1 bg-accent dark:bg-primary/20 text-accent-foreground dark:text-primary border border-accent/20 dark:border-primary/20 rounded-full text-sm font-medium">PyTorch</span>
+              <span className="px-3 py-1 bg-accent dark:bg-primary/20 text-accent-foreground dark:text-primary border border-accent/20 dark:border-primary/20 rounded-full text-sm font-medium">TensorFlow</span>
+              <span className="px-3 py-1 bg-accent dark:bg-primary/20 text-accent-foreground dark:text-primary border border-accent/20 dark:border-primary/20 rounded-full text-sm font-medium">Computer Vision</span>
+              <span className="px-3 py-1 bg-accent dark:bg-primary/20 text-accent-foreground dark:text-primary border border-accent/20 dark:border-primary/20 rounded-full text-sm font-medium">NLP</span>
+              <span className="px-3 py-1 bg-accent dark:bg-primary/20 text-accent-foreground dark:text-primary border border-accent/20 dark:border-primary/20 rounded-full text-sm font-medium">Reinforcement Learning</span>
             </div>
           </div>
           <div>
             <h3 className="text-2xl font-semibold mb-4">Full Stack Developer</h3>
-            <p className="mb-4 text-muted-foreground">
+            <p className="mb-4 text-foreground/80 dark:text-foreground/90">
               I build modern web applications using React, Next.js, and other cutting-edge technologies, 
               with a focus on creating intuitive and responsive user experiences.
             </p>
-            <p className="mb-4 text-muted-foreground">
+            <p className="mb-4 text-foreground/80 dark:text-foreground/90">
               My approach combines technical expertise with a keen eye for design, 
               ensuring that the applications I develop are both functional and visually appealing.
             </p>
             <div className="flex flex-wrap gap-2 mt-6">
-              <span className="px-3 py-1 bg-accent rounded-full text-sm">React</span>
-              <span className="px-3 py-1 bg-accent rounded-full text-sm">Next.js</span>
-              <span className="px-3 py-1 bg-accent rounded-full text-sm">TypeScript</span>
-              <span className="px-3 py-1 bg-accent rounded-full text-sm">Node.js</span>
-              <span className="px-3 py-1 bg-accent rounded-full text-sm">Tailwind CSS</span>
+              <span className="px-3 py-1 bg-accent dark:bg-primary/20 text-accent-foreground dark:text-primary border border-accent/20 dark:border-primary/20 rounded-full text-sm font-medium">React</span>
+              <span className="px-3 py-1 bg-accent dark:bg-primary/20 text-accent-foreground dark:text-primary border border-accent/20 dark:border-primary/20 rounded-full text-sm font-medium">Next.js</span>
+              <span className="px-3 py-1 bg-accent dark:bg-primary/20 text-accent-foreground dark:text-primary border border-accent/20 dark:border-primary/20 rounded-full text-sm font-medium">TypeScript</span>
+              <span className="px-3 py-1 bg-accent dark:bg-primary/20 text-accent-foreground dark:text-primary border border-accent/20 dark:border-primary/20 rounded-full text-sm font-medium">Node.js</span>
+              <span className="px-3 py-1 bg-accent dark:bg-primary/20 text-accent-foreground dark:text-primary border border-accent/20 dark:border-primary/20 rounded-full text-sm font-medium">Tailwind CSS</span>
             </div>
           </div>
         </div>

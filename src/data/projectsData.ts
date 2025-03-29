@@ -1,6 +1,6 @@
 import PoseEstimationImage from './img/6d-pose-estimation/rgb_sampling.png';
 import EnsembleRLImage from './img/ensemble-rl/ensemble_results.png';
-import EightballImage from './img/eightball-protocol/Eightball_Protocol.jpeg';
+import EightballImage from './img/eightball-protocol/Eightball_Protocol.png';
 import SmartTrafficImage from './img/ai-traffic-light/3D_simulation.png';
 import LegalCaseImage from './img/llm-court-rulings/Analysis_Pipeline.png'
 import DreamImage from './img/dream-analysis/dream.png'

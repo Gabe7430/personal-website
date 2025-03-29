@@ -2,8 +2,6 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Geist, Geist_Mono } from "next/font/google";
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import { projects } from '@/data/projectsData';
 
 const geistSans = Geist({
@@ -19,7 +17,6 @@ const geistMono = Geist_Mono({
 export default function Projects() {
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} min-h-screen font-sans`}>
-      <Navbar />
       
       <main className="py-20 px-4">
         <div className="container max-w-6xl mx-auto">
@@ -34,7 +31,7 @@ export default function Projects() {
             {projects.map((project) => (
               <div 
                 key={project.id} 
-                className={`border rounded-lg overflow-hidden hover:shadow-lg transition-shadow ${
+                className={`border hover:scale-[101%] active:scale-99 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow ${
                   project.highlight ? 'ring-2 ring-primary/20' : ''
                 }`}
               >
@@ -75,15 +72,13 @@ export default function Projects() {
           <div className="mt-16 text-center">
             <Link 
               href="/" 
-              className="rounded-full border border-foreground/20 px-6 py-3 font-medium hover:bg-accent transition-colors inline-block"
+              className="rounded-full border border-foreground/20 px-6 py-3 font-medium bg-background dark:bg-white dark:text-black hover:bg-accent dark:hover:bg-gray-100 transition-colors inline-block"
             >
               Back to Home
             </Link>
           </div>
         </div>
       </main>
-      
-      <Footer />
     </div>
   );
 }

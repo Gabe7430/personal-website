@@ -13,7 +13,7 @@ export default function ProjectsSection() {
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Featured Projects</h2>
         <div className="grid md:grid-cols-2 gap-8">
           {highlightedProjects.map((project) => (
-            <Card key={project.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+            <Card key={project.id} className="overflow-hidden shadow-md hover:shadow-lg hover:scale-[101%] active:scale-99 pt-0 transition-shadow">
               <div className="aspect-video relative overflow-hidden bg-muted">
                 <Image 
                   src={project.image.src} 
@@ -47,7 +47,7 @@ export default function ProjectsSection() {
         <div className="mt-12 text-center">
           <Link 
             href="/projects" 
-            className="rounded-full border border-foreground/20 px-6 py-3 font-medium hover:bg-accent transition-colors inline-block"
+            className="rounded-full border border-foreground/20 px-6 py-3 font-medium bg-background dark:bg-white dark:text-black hover:bg-accent dark:hover:bg-gray-100 transition-colors inline-block"
           >
             View All Projects
           </Link>

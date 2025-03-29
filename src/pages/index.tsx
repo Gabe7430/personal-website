@@ -1,10 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import Navbar from "@/components/Navbar";
 import HomeSection from "@/components/sections/HomeSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import ContactSection from "@/components/sections/ContactSection";
-import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,12 +17,10 @@ const geistMono = Geist_Mono({
 export default function Home() {
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} min-h-screen font-sans`}>
-      <Navbar />
       <HomeSection />
-      <AboutSection />
+      {/*<AboutSection />*/}
       <ProjectsSection />
       <ContactSection />
-      <Footer />
     </div>
   );
 }
