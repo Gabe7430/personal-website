@@ -2,6 +2,7 @@ import React from 'react';
 import { contactData } from '@/data/contactData';
 
 export default function ContactSection() {
+  
   return (
     <section id="contact" className="py-20 px-4 bg-muted/50">
       <div className="container max-w-4xl mx-auto">
