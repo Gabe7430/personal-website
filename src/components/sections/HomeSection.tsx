@@ -55,7 +55,7 @@ export default function HomeSection() {
         left: '75%',
         transform: 'rotate(10deg)',
       },
-      size: 'h-50 w-50',
+      size: 'h-50 w-85',
       animationDelay: '0.8s',
     },
     {
