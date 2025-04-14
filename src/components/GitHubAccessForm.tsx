@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -40,9 +41,9 @@ export default function GitHubAccessForm() {
           <Alert className="bg-green-50 border-green-200">
             <CheckCircle className="h-4 w-4 text-green-600" />
             <AlertTitle>Sent!</AlertTitle>
-            <AlertDescription>
-              Thank you for your request. You will be added as a collaborator soon.
-            </AlertDescription>
+            <AlertDescription className="text-green-700 mt-1">
+        Thank you for your request. You will be added as a collaborator soon.
+      </AlertDescription>
           </Alert>
         ) : (
           <form onSubmit={handleSubmit}>
@@ -86,6 +87,15 @@ export default function GitHubAccessForm() {
             </div>
           </form>
         )}
+        <p className="text-sm text-muted-foreground mt-3">
+          If you would like to add another collaborator,{' '}
+          <Link
+            href="/#contact"
+            className="text-primary underline hover:text-primary/80 inline"
+          >
+            contact me
+          </Link>.
+        </p>
       </CardContent>
     </Card>
   );

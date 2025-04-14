@@ -8,6 +8,8 @@ interface TypingTextProps {
   onComplete?: () => void;
   startOnView?: boolean; // Whether to start typing when element is in view
   threshold?: number; // Intersection observer threshold
+  useHtml?: boolean; // Whether to render HTML content
+  noTyping?: boolean; // Whether to disable typing animation and just show the text
 }
 
 export default function TypingText({ 
@@ -16,13 +18,24 @@ export default function TypingText({
   className = "", 
   onComplete,
   startOnView = true,
-  threshold = 0.1
+  threshold = 0.1,
+  useHtml = false,
+  noTyping = false
 }: TypingTextProps) {
   const [displayedText, setDisplayedText] = useState('');
-  const [hasStarted, setHasStarted] = useState(!startOnView);
-  const [ref, isInView] = useInView<HTMLParagraphElement>({ threshold, once: true });
+  const [hasStarted, setHasStarted] = useState(!startOnView || noTyping);
+  const [isComplete, setIsComplete] = useState(noTyping);
+  const [ref, isInView] = useInView<HTMLDivElement>({ threshold, once: true });
   
   useEffect(() => {
+    // If noTyping is true, just display the full text immediately
+    if (noTyping) {
+      setDisplayedText(text);
+      setIsComplete(true);
+      if (onComplete) onComplete();
+      return;
+    }
+    
     // Only start typing if hasStarted is true
     if (!hasStarted) return;
     
@@ -43,13 +56,14 @@ export default function TypingText({
       } else {
         // We've reached the end of the text
         clearInterval(interval);
+        setIsComplete(true);
         if (onComplete) onComplete();
       }
     }, speed);
 
     // Clean up interval on unmount or when dependencies change
     return () => clearInterval(interval);
-  }, [text, speed, onComplete, hasStarted]);
+  }, [text, speed, onComplete, hasStarted, noTyping]);
   
   // Start typing when element comes into view
   useEffect(() => {
@@ -58,12 +72,18 @@ export default function TypingText({
     }
   }, [isInView, hasStarted, startOnView]);
 
-  return (
-    <p 
+  return useHtml ? (
+    <div
+      ref={ref}
+      className={className}
+      dangerouslySetInnerHTML={{ __html: displayedText }}
+    />
+  ) : (
+    <div 
       ref={ref} 
       className={`whitespace-pre-wrap ${className}`}
     >
       {displayedText}
-    </p>
+    </div>
   );
 }

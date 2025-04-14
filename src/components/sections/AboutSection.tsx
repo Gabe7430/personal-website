@@ -1,8 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import TypingText from '../ui/loading-text';
 
 export default function AboutSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  // Set up intersection observer to detect when the section is visible
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    
+    const section = document.getElementById('about');
+    if (section) {
+      observer.observe(section);
+    }
+    
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, []);
   return (
     <section id="about" className="py-20 px-4 bg-muted/50">
       <div className="container max-w-4xl mx-auto">
@@ -21,31 +46,29 @@ export default function AboutSection() {
             </div>
             <div className="md:w-2/3">
               <TypingText 
-                text="I'm from the warm desert of Phoenix, Arizona and currently study Computer Science at Stanford. From my experience, I find it hard to separate my interests and background from my work and studies. Many of my projects explore areas like dreams, robotics, movies, games, and the political and economic state of the world... all of which are personal passions of mine. Feel free to reach out about any of these topics!"
-                className="mb-4 text-foreground/90 leading-relaxed"
+                text="<p>I'm from the warm desert of Phoenix, Arizona and currently study Computer Science at Stanford. From my experience, I find it hard to separate my interests and background from my work and studies. Many of my projects explore areas like dreams, robotics, movies, games, and the political and economic state of the world... all of which are personal passions of mine. Feel free to reach out about any of these topics!</p>"
+                className="text-foreground/90 leading-relaxed"
                 speed={20}
-                startOnView={true}
-                threshold={0.2}
+                startOnView={false}
+                useHtml={true}
+                onComplete={() => setIsVisible(true)}
               />
+              {!isVisible && <div className="h-6"></div>}
             </div>
           </div>
           
           <div className="space-y-4 animate-fadeIn" style={{ animationDelay: '600ms' }}>
-            <TypingText 
-              text="My journey began in high school where I self-taught programming as part of the robotics club. Competing in FIRST competitions and advancing to regionals was an incredible experience that shaped my early technical skills. When I arrived at Stanford, I initially pursued pre-med, but after taking my first formal computer science class, I fell in love with the CS department and shifted gears."
-              className="text-foreground/90 leading-relaxed mb-4"
-              speed={20}
-              startOnView={true}
-              threshold={0.2}
-            />
-            
-            <TypingText 
-              text="I was naturally drawn to the Artificial Intelligence track and have since taken several graduate-level courses in machine learning, deep learning, reinforcement learning, natural language processing, and data mining. The projects in my portfolio showcase much of what I've been working on since my start in robotics, and I'm excited to continue this journey!"
-              className="text-foreground/90 leading-relaxed"
-              speed={20}
-              startOnView={true}
-              threshold={0.2}
-            />
+            {isVisible && (
+              <TypingText 
+                text="<p>My journey began in high school where I self-taught programming as part of the robotics club. Competing in FIRST competitions and advancing to regionals was an incredible experience that shaped my early technical skills. When I arrived at Stanford, I initially pursued pre-med, but after taking my first formal computer science class, I fell in love with the CS department and shifted gears.</p>
+
+<p>I was naturally drawn to the Artificial Intelligence track and have since taken several graduate-level courses in machine learning, deep learning, reinforcement learning, natural language processing, and data mining. The projects in my portfolio showcase much of what I've been working on since my start in robotics, and I'm excited to continue this journey!</p>"
+                className="text-foreground/90 leading-relaxed space-y-4"
+                speed={20}
+                startOnView={false}
+                useHtml={true}
+              />
+            )}
           </div>
           
           <div className="pt-4 animate-fadeIn" style={{ animationDelay: '900ms' }}>

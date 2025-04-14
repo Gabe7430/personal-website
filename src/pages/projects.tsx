@@ -50,7 +50,8 @@ export default function Projects() {
     "NumPy",
     "PyTorch",
     "TensorFlow",
-    "Reinforcement Learning"
+    "Reinforcement Learning",
+    "Natural Language Processing"
   ];
   
   // Handle filter toggle
@@ -114,7 +115,7 @@ export default function Projects() {
           </div>
           
           <div className="mb-8">
-            <h2 className="text-xl font-semibold mb-4 text-center">Filter by Technology</h2>
+            <h2 className="text-xl font-semibold mb-4 text-center">Filter by</h2>
             <div className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto">
               {filterCategories.map((filter) => (
                 <button
@@ -145,7 +146,7 @@ export default function Projects() {
             )}
           </div>
           
-          <div className="mb-16 max-w-md mx-auto">
+          <div id="github-access-form" className="mb-16 max-w-md mx-auto">
             <h2 className="text-2xl font-semibold mb-4 text-center">Request GitHub Access</h2>
             <GitHubAccessForm />
           </div>
@@ -195,16 +196,17 @@ export default function Projects() {
                     >
                       View Details →
                     </button>
-                    <a 
-                      href={project.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-1 text-sm font-medium hover:underline"
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        // Scroll to the GitHub access form
+                        document.querySelector('#github-access-form')?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="flex items-center gap-1 text-sm font-medium hover:underline cursor-pointer bg-transparent border-0"
                     >
                       <Github size={16} />
-                      <span>GitHub</span>
-                    </a>
+                      <span>Request Access</span>
+                    </button>
                   </div>
                 </div>
               </div>

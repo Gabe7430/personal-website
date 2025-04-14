@@ -56,11 +56,6 @@ export default function ProjectsSection() {
     <section id="projects" className="py-20 px-4">
       <div className="container max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Featured Projects</h2>
-        <p className="text-center text-muted-foreground mb-8">
-          <Link href="/projects" className="hover:underline inline-flex items-center gap-1">
-           <span className="underline text-primary text-lg">Request GitHub Access</span>
-          </Link>
-        </p>
         <div className="grid md:grid-cols-2 gap-8">
           {isLoading ? (
             // Skeleton loading UI
@@ -108,18 +103,14 @@ export default function ProjectsSection() {
                   <TypingText 
                     text={project.title}
                     className="text-lg font-semibold"
-                    speed={15}
-                    startOnView={true}
-                    threshold={0.1}
+                    noTyping={true}
                   />
                 </CardHeader>
                 <CardContent>
                   <TypingText 
                     text={project.description}
                     className="text-muted-foreground mb-4"
-                    speed={10}
-                    startOnView={true}
-                    threshold={0.1}
+                    noTyping={true}
                   />
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.slice(0, 3).map((tech, index) => (
@@ -141,14 +132,15 @@ export default function ProjectsSection() {
                     View Details →
                   </button>
                   <a 
-                    href={project.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
+                    href="/projects" 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      // Navigate to projects page with request access form
+                    }}
                     className="flex items-center gap-1 text-sm font-medium hover:underline hover:text-primary transition-colors duration-300 group"
                   >
                     <Github size={16} className="transition-transform duration-300 group-hover:rotate-12" />
-                    <span>GitHub</span>
+                    <span>Request Access</span>
                   </a>
                 </CardFooter>
               </Card>

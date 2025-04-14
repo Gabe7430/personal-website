@@ -16,12 +16,8 @@ export default function HomeSection() {
   const [animationComplete, setAnimationComplete] = useState(false);
   
   useEffect(() => {
-    // Set animation as complete after all images have finished their animation
-    const timer = setTimeout(() => {
-      setAnimationComplete(true);
-    }, 4000); // 4 seconds for the animation
-    
-    return () => clearTimeout(timer);
+    // Start animation immediately
+    setAnimationComplete(true);
   }, []);
   
   const images: ScatteredImage[] = [
@@ -37,14 +33,14 @@ export default function HomeSection() {
       animationDelay: '0.2s',
     },
     {
-      src: '/images/about-section-photo.jpeg',
-      alt: 'About Section Photo',
+      src: '/home-imgs/mario.png',
+      alt: 'Mario',
       position: {
         top: '65%',
         left: '15%',
         transform: 'rotate(-10deg)',
       },
-      size: 'h-50 w-50',
+      size: 'h-70 w-50',
       animationDelay: '0.5s',
     },
     {
@@ -99,20 +95,18 @@ export default function HomeSection() {
       {images.map((img, index) => (
         <div
           key={index}
-          className={`absolute z-10 transition-all duration-[3s] ease-in-out ${animationComplete ? '' : 'opacity-0'}`}
+          className={`absolute z-10 transition-all duration-[1.5s] ease-in-out ${animationComplete ? '' : 'opacity-0'}`}
           style={{
-            top: animationComplete ? img.position.top : '50%',
-            left: animationComplete ? img.position.left : '50%',
-            transform: animationComplete 
-              ? img.position.transform 
-              : `translate(-50%, -50%) ${img.position.transform}`,
+            top: img.position.top,
+            left: img.position.left,
+            transform: img.position.transform,
             transitionDelay: img.animationDelay,
+            opacity: animationComplete ? 1 : 0,
           }}
         >
           <div 
             className={`${img.size} transition-all duration-500 ease-in-out 
-              hover:scale-110 cursor-pointer
-              ${animationComplete ? 'opacity-100' : 'opacity-0'}`}
+              hover:scale-110 cursor-pointer opacity-100`}
             style={{ transitionDelay: img.animationDelay }}
           >
             <img
@@ -131,7 +125,7 @@ export default function HomeSection() {
         <img 
           src="/images/home-photo.JPG" 
           alt="Profile" 
-          className="rounded-full h-32 w-32 object-cover mb-7 shadow-lg" 
+          className="rounded-full h-50 w-50 object-cover mb-7 shadow-lg" 
         />
         <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">Gabe SantaCruz</h1>
         <p className="text-xl md:text-2xl mb-8 text-gray-600">Machine Learning Engineer & Full Stack Developer</p>
