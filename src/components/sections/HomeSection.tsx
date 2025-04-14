@@ -128,7 +128,7 @@ export default function HomeSection() {
           className="rounded-full h-50 w-50 object-cover mb-7 shadow-lg" 
         />
         <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">Gabe SantaCruz</h1>
-        <p className="text-xl md:text-2xl mb-8 text-gray-600">Machine Learning Engineer & Full Stack Developer</p>
+        <p className="text-xl md:text-2xl mb-8 text-gray-600">Machine Learning / AI  Engineer</p>
         <div className="flex gap-4 justify-center flex-wrap">
           <a 
             href="#projects" 

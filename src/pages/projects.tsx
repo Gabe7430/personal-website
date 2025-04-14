@@ -155,8 +155,8 @@ export default function Projects() {
             {filteredProjects.map((project) => (
               <div 
                 key={project.id} 
-                className={`border hover:scale-[101%] active:scale-99 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer ${
-                  project.highlight ? 'ring-2 ring-primary/20' : ''
+                className={`border hover:scale-[101%] active:scale-99 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer ${
+                  project.highlight ? 'border-[#185761] border-2 shadow-md shadow-primary/10' : ''
                 }`}
                 onClick={() => handleProjectClick(project)}
               >
@@ -169,7 +169,7 @@ export default function Projects() {
                   />
                   {project.highlight && (
                     <div className="absolute top-2 right-2">
-                      <span className="bg-primary text-primary-foreground text-xs px-2 py-1 rounded-full">
+                      <span className="bg-primary text-primary-foreground text-xs px-2 py-1 rounded-full font-medium shadow-sm">
                         Featured
                       </span>
                     </div>
