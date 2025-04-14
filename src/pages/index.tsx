@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} min-h-screen font-sans`}>
       <HomeSection />
-      {/*<AboutSection />*/}
+      <AboutSection />
       <ProjectsSection />
       <ContactSection />
     </div>

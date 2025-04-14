@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+// Change to deploy
 interface ScatteredImage {
   src: string;
   alt: string;
@@ -37,14 +37,14 @@ export default function HomeSection() {
       animationDelay: '0.2s',
     },
     {
-      src: '/home-imgs/mario.png',
-      alt: 'Mario',
+      src: '/images/about-section-photo.jpeg',
+      alt: 'About Section Photo',
       position: {
         top: '65%',
         left: '15%',
         transform: 'rotate(-10deg)',
       },
-      size: 'h-50 w-38',
+      size: 'h-50 w-50',
       animationDelay: '0.5s',
     },
     {
@@ -111,16 +111,16 @@ export default function HomeSection() {
         >
           <div 
             className={`${img.size} transition-all duration-500 ease-in-out 
-              hover:scale-110 hover:shadow-xl cursor-pointer
+              hover:scale-110 cursor-pointer
               ${animationComplete ? 'opacity-100' : 'opacity-0'}`}
             style={{ transitionDelay: img.animationDelay }}
           >
             <img
               src={img.src}
               alt={img.alt}
-              className="w-full h-full object-cover rounded-md shadow-md 
+              className="w-full h-full object-cover rounded-md
                 transition-all duration-500 
-                hover:brightness-110 hover:contrast-110 hover:shadow-lg"
+                hover:brightness-110 hover:contrast-110"
             />
           </div>
         </div>
@@ -129,7 +129,7 @@ export default function HomeSection() {
       {/* Main content */}
       <div className="container max-w-4xl mx-auto text-center flex flex-col items-center z-20 relative">
         <img 
-          src="https://i.pinimg.com/1200x/c0/92/1c/c0921c5f03376ccb36af0be21495595b.jpg" 
+          src="/images/home-photo.JPG" 
           alt="Profile" 
           className="rounded-full h-32 w-32 object-cover mb-7 shadow-lg" 
         />
