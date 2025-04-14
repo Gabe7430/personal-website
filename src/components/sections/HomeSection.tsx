@@ -91,11 +91,32 @@ export default function HomeSection() {
 
   return (
     <section id="home" className="min-h-screen flex flex-col justify-center items-center py-20 px-4 relative overflow-hidden bg-white">
+      {/* Mobile scattered images (horizontal scroll) */}
+      <div className="md:hidden w-full overflow-x-auto pb-4 mb-8 flex items-center gap-3 px-2 -mt-10">
+        {images.map((img, index) => (
+          <div
+            key={`mobile-${index}`}
+            className="flex-shrink-0 transition-all duration-500 ease-in-out hover:scale-105"
+            style={{ 
+              width: index === 0 ? '110px' : '100px',
+              height: index === 0 ? '110px' : '100px',
+              opacity: animationComplete ? 1 : 0,
+              transitionDelay: img.animationDelay
+            }}
+          >
+            <img
+              src={img.src}
+              alt={img.alt}
+              className="w-full h-full object-cover rounded-md shadow-sm"
+            />
+          </div>
+        ))}
+      </div>
       {/* Scattered images with circular animation */}
       {images.map((img, index) => (
         <div
           key={index}
-          className={`absolute z-10 transition-all duration-[1.5s] ease-in-out ${animationComplete ? '' : 'opacity-0'}`}
+          className={`absolute z-10 transition-all duration-[1.5s] ease-in-out ${animationComplete ? '' : 'opacity-0'} hidden md:block`}
           style={{
             top: img.position.top,
             left: img.position.left,
