@@ -179,15 +179,13 @@ export default function ProjectsSection() {
               <div className="mt-6">
                 <div className="flex justify-between items-center mb-2">
                   <h3 className="text-lg font-semibold">Description</h3>
-                  <a 
-                    href={selectedProject.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                  <Link 
+                    href="/projects#github-access-form" 
                     className="flex items-center gap-1 text-sm font-medium hover:underline"
                   >
                     <Github size={16} />
-                    <span>View on GitHub</span>
-                  </a>
+                    <span>Request Access</span>
+                  </Link>
                 </div>
                 <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{selectedProject.description}</p>
               </div>

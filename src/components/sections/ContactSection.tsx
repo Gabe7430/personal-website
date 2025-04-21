@@ -4,7 +4,7 @@ import { contactData } from '@/data/contactData';
 export default function ContactSection() {
   
   return (
-    <section id="contact" className="py-20 px-4">
+    <section id="contact" className="py-20 px-4 scroll-mt-16">
       <div className="container max-w-4xl mx-auto">
         <div className="bg-muted/50 rounded-lg px-10 py-12 mx-0 md:mx-0 lg:mx-0">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Get In Touch</h2>

@@ -89,12 +89,24 @@ export default function GitHubAccessForm() {
         )}
         <p className="text-sm text-muted-foreground mt-3">
           If you would like to add another collaborator,{' '}
-          <Link
-            href="/#contact"
-            className="text-primary underline hover:text-primary/80 inline"
+          <button
+            onClick={() => {
+              // Find the contact section on the current page
+              const contactSection = document.querySelector('section#contact');
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                // Fallback to scrolling to bottom if contact section isn't found
+                window.scrollTo({
+                  top: document.documentElement.scrollHeight,
+                  behavior: 'smooth'
+                });
+              }
+            }}
+            className="text-primary underline hover:text-primary/80 inline bg-transparent border-0 p-0 cursor-pointer"
           >
             contact me
-          </Link>.
+          </button>.
         </p>
       </CardContent>
     </Card>

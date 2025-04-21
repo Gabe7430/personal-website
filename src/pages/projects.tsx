@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { projects } from '@/data/projectData/projectData';
 import GitHubAccessForm from '@/components/GitHubAccessForm';
+import ContactSection from '@/components/sections/ContactSection';
 import { Github } from 'lucide-react';
 
 interface ProjectImage {
@@ -223,6 +224,9 @@ export default function Projects() {
           </div>
         </div>
       </main>
+      
+      {/* Contact Section */}
+      <ContactSection />
 
       {/* Project Details Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
@@ -246,15 +250,16 @@ export default function Projects() {
           <div className="mt-6">
             <div className="flex justify-between items-center mb-2">
               <h3 className="text-lg font-semibold">Description</h3>
-              <a 
-                href={selectedProject.url} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 text-sm font-medium hover:underline"
+              <button 
+                onClick={() => {
+                  document.querySelector('#github-access-form')?.scrollIntoView({ behavior: 'smooth' });
+                  setIsDialogOpen(false);
+                }}
+                className="flex items-center gap-1 text-sm font-medium hover:underline cursor-pointer bg-transparent border-0"
               >
                 <Github size={16} />
-                <span>View on GitHub</span>
-              </a>
+                <span>Request Access</span>
+              </button>
             </div>
             <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
               {selectedProject.description}

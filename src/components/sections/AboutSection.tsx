@@ -4,6 +4,18 @@ import TypingText from '../ui/loading-text';
 
 export default function AboutSection() {
   const [isVisible, setIsVisible] = useState(false);
+  const [hasSeenAnimation, setHasSeenAnimation] = useState(true); // Default to true (no animation)
+  
+  // Check if user has already seen the animation in this session
+  useEffect(() => {
+    // Only run on client-side
+    if (typeof window !== 'undefined') {
+      const hasAnimated = sessionStorage.getItem('hasSeenAboutAnimation');
+      // If hasAnimated is null, it means this is a new session (new tab)
+      // If it's 'true', it means the user has seen the animation in this session (refresh)
+      setHasSeenAnimation(hasAnimated === 'true');
+    }
+  }, []);
   
   // Set up intersection observer to detect when the section is visible
   useEffect(() => {
@@ -12,6 +24,11 @@ export default function AboutSection() {
         if (entry.isIntersecting) {
           setIsVisible(true);
           observer.disconnect();
+          
+          // Mark that user has seen the animation in this session
+          if (!hasSeenAnimation && typeof window !== 'undefined') {
+            sessionStorage.setItem('hasSeenAboutAnimation', 'true');
+          }
         }
       },
       { threshold: 0.2 }
@@ -27,7 +44,7 @@ export default function AboutSection() {
         observer.unobserve(section);
       }
     };
-  }, []);
+  }, [hasSeenAnimation]);
   return (
     <section id="about" className="py-20 px-4 bg-muted/50">
       <div className="container max-w-4xl mx-auto">
@@ -51,6 +68,7 @@ export default function AboutSection() {
                 speed={20}
                 startOnView={false}
                 useHtml={true}
+                noTyping={hasSeenAnimation}
                 onComplete={() => setIsVisible(true)}
               />
               {!isVisible && <div className="h-6"></div>}
@@ -67,6 +85,7 @@ export default function AboutSection() {
                 speed={20}
                 startOnView={false}
                 useHtml={true}
+                noTyping={hasSeenAnimation}
               />
             )}
           </div>
