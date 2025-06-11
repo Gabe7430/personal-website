@@ -250,16 +250,29 @@ export default function Projects() {
           <div className="mt-6">
             <div className="flex justify-between items-center mb-2">
               <h3 className="text-lg font-semibold">Description</h3>
-              <button 
-                onClick={() => {
-                  document.querySelector('#github-access-form')?.scrollIntoView({ behavior: 'smooth' });
-                  setIsDialogOpen(false);
-                }}
-                className="flex items-center gap-1 text-sm font-medium hover:underline cursor-pointer bg-transparent border-0"
-              >
-                <Github size={16} />
-                <span>Request Access</span>
-              </button>
+              <div className="flex gap-2">
+                {selectedProject.id === "reinforcement-learning-stock" && (
+                  <a 
+                    href="/research_papers/Reinforcement Learning Stacking Strategy for Stock Trading copy.pdf" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-sm font-medium hover:underline cursor-pointer bg-transparent border-0 text-primary"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <span>View Research Paper</span>
+                  </a>
+                )}
+                <button 
+                  onClick={() => {
+                    document.querySelector('#github-access-form')?.scrollIntoView({ behavior: 'smooth' });
+                    setIsDialogOpen(false);
+                  }}
+                  className="flex items-center gap-1 text-sm font-medium hover:underline cursor-pointer bg-transparent border-0"
+                >
+                  <Github size={16} />
+                  <span>Request Access</span>
+                </button>
+              </div>
             </div>
             <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
               {selectedProject.description}
