@@ -250,7 +250,7 @@ export default function Projects() {
           <div className="mt-6">
             <div className="flex justify-between items-center mb-2">
               <h3 className="text-lg font-semibold">Description</h3>
-              <div className="flex gap-2">
+              <div className="flex gap-2 flex-wrap">
                 {selectedProject.id === "reinforcement-learning-stock" && (
                   <a 
                     href="/research_papers/Reinforcement Learning Stacking Strategy for Stock Trading copy.pdf" 
@@ -261,6 +261,28 @@ export default function Projects() {
                   >
                     <span>View Research Paper</span>
                   </a>
+                )}
+                {selectedProject.id === "dream-sentiment-analysis" && (
+                  <>
+                    <a 
+                      href="/research_papers/Deciphering_Dreams__Sentiment_Analysis_of_Dream_Journals copy.pdf" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-sm font-medium hover:underline cursor-pointer bg-transparent border-0 text-primary"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <span>View Research Paper</span>
+                    </a>
+                    <a 
+                      href="/research_posters/CS 224N Final Project Poster copy.pdf" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-sm font-medium hover:underline cursor-pointer bg-transparent border-0 text-primary"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <span>View Research Poster</span>
+                    </a>
+                  </>
                 )}
                 <button 
                   onClick={() => {
